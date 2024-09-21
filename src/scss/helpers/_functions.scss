@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@function pxToVw($px, $viewport-width: 1920px) {
+	@return math.div($px, $viewport-width) * 100 + vw;
+}
+
+@function pxToVw3($px, $viewport-width: 768px) {
+	@return math.div($px, $viewport-width) * 100 + vw;
+}

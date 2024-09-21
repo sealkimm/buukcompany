@@ -1,0 +1,13 @@
+@mixin tab-only {
+	@media screen and (min-width: 769px) and (max-width: (1280px)) {
+		@content;
+	}
+}
+@mixin mob-only {
+	@media screen and (max-width: (768px)) {
+		@content;
+		.mob-br {
+			display: none;
+		}
+	}
+}

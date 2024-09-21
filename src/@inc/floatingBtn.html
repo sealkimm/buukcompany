@@ -1,0 +1,32 @@
+<div class="floating-btn">
+	<a href="/sub/contact" class="contact-link"><span class="text">가맹 문의</span></a>
+	<button type="button" class="btn-top">
+		<img src="../img/common/btn_top_ico.png" alt="상단으로 가기 아이콘" />
+		<span class="text">TOP</span>
+	</button>
+</div>
+<script>
+	const $floatingBtn = document.querySelector('.floating-btn');
+	const isMainPage = window.location.pathname === '/';
+
+	// 메인페이지에서만 floatingBtn active 모션
+	window.addEventListener('scroll', () => {
+		if (isMainPage) {
+			if (window.scrollY > 60) {
+				$floatingBtn.classList.add('active');
+			} else {
+				$floatingBtn.classList.remove('active');
+			}
+		}
+	});
+	if (!isMainPage) {
+		$floatingBtn.classList.add('active');
+	}
+
+	// 상단으로 가기
+	const $btnTop = $floatingBtn.querySelector('.floating-btn .btn-top');
+
+	$btnTop.addEventListener('click', () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	});
+</script>

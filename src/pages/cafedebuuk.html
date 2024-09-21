@@ -1,0 +1,121 @@
+{% set pageInfo = { 'section': 'brand', 'title': '카페 드 부엌', canonical: "sub/cafedebuuk", ogUrl: "sub/cafedebuuk" } %} {% set cbkInteriorImg = [ 'interior_cbk1.webp',
+'interior_cbk2.webp', 'interior_cbk3.webp', 'interior_cbk4.webp', 'interior_cbk5.webp' ] %} {% extends "layout.html" %} {% block content %}
+
+<div class="brand-pg">
+	<div class="brand-wrap">
+		<!-- 카페 드 부엌 -->
+		<section class="sc-brand-info b3">
+			<div class="title-group">
+				<h4 class="title">카페 드 부엌</h4>
+			</div>
+			<div class="cont-group">
+				<div class="info-area">
+					<div class="inner">
+						<div class="swiper interior-swiper">
+							<div class="swiper-wrapper">
+								{% for image in cbkInteriorImg %}
+								<div class="swiper-slide">
+									<img src="../img/sub/brands/interior/cbk/{{ image }}" alt="카페드부엌 인테리어 이미지" />
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<p class="desc">
+						카페 드 부엌은 유러피안 감성을 바탕으로 기획된 브랜드입니다.
+						<br />다양한 카페가 우후죽순으로 생겨나는 지금, <br />단순히 커피를 잘해서는 살아남기 힘듭니다. <br />
+						<br />카페 드 부엌은 단순한 유럽 감성이 아닌 <br />디테일한 유러피안 감성을 담아내, <br />방문하시는 고객님들께 공간적 가치와 커피의 즐거움을 선사합니다.
+						<br />
+						<br />전문적인 커피와 흔하지 않은 디저트로 카페 드 부엌만의 <br />정체성을 확보하고 체계적인 교육을 통해 커피가 처음인 분들도 <br />쉽게 창업하실 수 있도록
+						도움을 드리고 있습니다.
+					</p>
+				</div>
+				<div class="store-area">
+					<div class="tit-wrap">
+						<em class="tit">Store</em>
+						<p class="desc">주변의 가까운 Cafe'de BUUK의 매장을 확인해 보세요!</p>
+					</div>
+					<ul class="store-list">
+						<li><strong>해운대점</strong> 부산 해운대구 달맞이길117번나길 200 1층</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- // 카페 드 부엌 -->
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const brandInteriorSwiper = new Swiper('.sc-brand-info .interior-swiper', {
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		const brandMenuSwiper = new Swiper('.sc-brand-info .menu-swiper', {
+			loop: true,
+			slidesPerView: 'auto',
+			speed: 2500,
+			spaceBetween: 38,
+			autoplay: {
+				delay: 1,
+			},
+		});
+	});
+
+	// 브랜드페이지 gsap
+	ScrollTrigger.matchMedia({
+		'(min-width: 769px)': function () {
+			// menu-area ani
+			gsap.set(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .menu-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+
+			// store-area ani
+			gsap.set(`.brand-pg .sc-brand-info .store-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .store-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .store-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+		},
+
+		'(max-width: 768px)': function () {},
+
+		all: function () {
+			// title ani
+			gsap.set(`.brand-pg .sc-brand-info .title`, { opacity: 0 });
+			gsap.to(`.brand-pg .sc-brand-info .title`, {
+				'--before-width': '100%',
+				opacity: 1,
+				duration: 0.5,
+			});
+			// info-area ani
+			gsap.set(`.brand-pg .sc-brand-info .info-area`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .info-area`, {
+				opacity: 1,
+				y: 0,
+				delay: 0.5,
+			});
+		},
+	});
+</script>
+{% endblock %}

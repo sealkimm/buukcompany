@@ -1,0 +1,96 @@
+@import '../helpers/functions';
+* {
+	word-break: keep-all;
+}
+html,
+body {
+	font-family: 'Noto Sans', 'Noto Sans KR', sans-serif;
+	font-weight: 400;
+	line-height: 1.3;
+	color: $black-color;
+}
+
+img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.blind {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	clip: rect(0,0,0,0);
+}
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	color: #999;
+}
+
+.more-link {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	line-height: 46px;
+	text-align: center;
+	border: 1px solid $black-color;
+	border-radius: 2vw;
+	margin-top: auto;
+	@include size(192px, 46px);
+	span {
+		position: relative;
+		z-index: 20;
+		display: block;
+		font-size: 22px;
+		transition: color .3s;
+	}
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		background-color: $black-color;
+		transition: width .3s;
+		content: '';
+		@include size(0, 100%);
+	}
+	&:hover {
+		span {
+			color: #fff;
+		}
+		&::after {
+			width: 100%;
+		}
+	}
+
+	@include mob-only {
+		line-height: pxToVw3(68px);
+		border-radius: 20vw;
+		margin-top: pxToVw3(28px);
+		@include size(pxToVw3(270px), pxToVw3(68px));
+		span {
+			font-size: pxToVw3(32px);
+		}
+		&:hover {
+			span {
+				color: inherit;
+			}
+			&::after {
+				width: 0;
+			}
+		}
+	}
+
+	@include tab-only {
+		line-height: pxToVw(64px);
+		border-radius: 1.8vw;
+		@include size(pxToVw(240px), pxToVw(64px));
+		span {
+			font-size: pxToVw(30px);
+		}
+	}
+}

@@ -1,0 +1,135 @@
+{% set pageInfo = { 'section': 'brand', 'title': '부엌간 차이니즈', canonical: "sub/buukchinese", ogUrl: "sub/buukchinese" } %} {% set bkcInteriorImg = [ 'interior_bkc1.webp',
+'interior_bkc2.webp', 'interior_bkc3.webp', 'interior_bkc4.webp', 'interior_bkc5.webp' ] %} {% set bkcMenuImg = [ 'menu_bkc1.webp', 'menu_bkc2.webp', 'menu_bkc3.webp',
+'menu_bkc4.webp', 'menu_bkc5.webp', 'menu_bkc6.webp', 'menu_bkc7.webp', 'menu_bkc8.webp', 'menu_bkc9.webp', 'menu_bkc10.webp', 'menu_bkc11.webp', 'menu_bkc12.webp',
+'menu_bkc13.webp', 'menu_bkc14.webp', 'menu_bkc15.webp' ] %} {% extends "layout.html" %} {% block content %}
+
+<div class="brand-pg">
+	<div class="brand-wrap">
+		<!--  부엌간 차이니즈 -->
+		<section class="sc-brand-info b2">
+			<div class="title-group">
+				<h4 class="title">부엌간 차이니즈</h4>
+			</div>
+			<div class="cont-group">
+				<div class="info-area">
+					<div class="inner">
+						<div class="swiper interior-swiper">
+							<div class="swiper-wrapper">
+								{% for image in bkcInteriorImg %}
+								<div class="swiper-slide">
+									<img src="../img/sub/brands/interior/bkc/{{ image }}" alt="부엌간차이니즈 인테리어 이미지" />
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<p class="desc">
+						부엌간 차이니즈는 유러피안 차이니즈 레스토랑입니다.
+						<br />일반 중식당과 다르게 유러피안 감성을 기반으로 한 <br />차이니즈 레스토랑으로 고수 짬뽕,깐풍 아귀,마늘 유린기와 같은 <br />부엌간 차이니즈에만 있는
+						특별한 메뉴로 구성 되어 있습니다.
+					</p>
+				</div>
+				<div class="menu-area">
+					<div class="tit-wrap">
+						<em class="tit">Menu</em>
+						<p class="desc">부엌간 차이니즈가 만들면 평범한 메뉴도 특별해집니다.</p>
+					</div>
+					<div class="swiper menu-swiper">
+						<div class="swiper-wrapper">
+							{% for image in bkcMenuImg %}
+							<div class="swiper-slide">
+								<img src="../img/sub/brands/menu/bkc/{{ image }}" alt="부엌간차이니즈 메뉴 이미지" />
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="store-area">
+					<div class="tit-wrap">
+						<em class="tit">Store</em>
+						<p class="desc">주변의 가까운 BUUK Chinese의 매장을 확인해 보세요!</p>
+					</div>
+					<ul class="store-list">
+						<li><strong>해운대점</strong> 부산 해운대구 달맞이길117번나길 200 1층</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- // 부엌간 차이니즈 -->
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const brandInteriorSwiper = new Swiper('.sc-brand-info .interior-swiper', {
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		const brandMenuSwiper = new Swiper('.sc-brand-info .menu-swiper', {
+			loop: true,
+			slidesPerView: 'auto',
+			speed: 2500,
+			spaceBetween: 38,
+			autoplay: {
+				delay: 1,
+			},
+		});
+	});
+
+	// 브랜드페이지 gsap
+	ScrollTrigger.matchMedia({
+		'(min-width: 769px)': function () {
+			// menu-area ani
+			gsap.set(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .menu-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+
+			// store-area ani
+			gsap.set(`.brand-pg .sc-brand-info .store-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .store-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .store-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+		},
+
+		'(max-width: 768px)': function () {},
+
+		all: function () {
+			// title ani
+			gsap.set(`.brand-pg .sc-brand-info .title`, { opacity: 0 });
+			gsap.to(`.brand-pg .sc-brand-info .title`, {
+				'--before-width': '100%',
+				opacity: 1,
+				duration: 0.5,
+			});
+			// info-area ani
+			gsap.set(`.brand-pg .sc-brand-info .info-area`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .info-area`, {
+				opacity: 1,
+				y: 0,
+				delay: 0.5,
+			});
+		},
+	});
+</script>
+{% endblock %}

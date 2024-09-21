@@ -1,0 +1,81 @@
+{% set pageInfo = { 'section': 'brands', 'title': '브랜드소개', canonical: "sub/brands", ogUrl: "sub/brands" } %} {% extends "layout.html" %} {% block content %}
+
+<div class="brands-pg">
+	<div class="brands-wrap">
+		<section class="sc-brands">
+			<div class="title-group">
+				<h2 class="title">BRANDS</h2>
+			</div>
+			<div class="brands-group">
+				<ul class="brands-list">
+					<li class="brands-item">
+						<a href="/sub/buukgan">
+							<h3 class="name">부엌간</h3>
+							<img src="../img/sub/brands/brands_bk.webp" alt="부엌간 이미지" />
+							<div class="overlay"><span class="blind">오버레이 이미지</span></div>
+						</a>
+					</li>
+					<li class="brands-item">
+						<a href="/sub/buukchinese">
+							<h3 class="name">부엌간 차이니즈</h3>
+							<img src="../img/sub/brands/brands_bkc.webp" alt="부엌간 차이니즈 이미지" />
+							<div class="overlay"><span class="blind">오버레이 이미지</span></div>
+						</a>
+					</li>
+					<li class="brands-item">
+						<a href="/sub/cafedebuuk">
+							<h3 class="name">카페 드 부엌</h3>
+							<img src="../img/sub/brands/brands_cbk.webp" alt="카페 드 부엌 이미지" />
+							<div class="overlay"><span class="blind">오버레이 이미지</span></div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+</div>
+
+<script>
+	window.onload = () => {
+		ScrollTrigger.matchMedia({
+			'(min-width: 769px)': function () {
+				gsap.set('.brands-pg .brands-item', { opacity: 0, y: 100 });
+				gsap.to('.brands-pg .title', {
+					'--before-width': 'calc(50% - 165px)',
+					opacity: 1,
+					duration: 0.5,
+				});
+				gsap.to('.brands-pg .brands-item', {
+					stagger: {
+						amount: 0.25,
+						from: 'left',
+					},
+					opacity: 1,
+					y: 0,
+					delay: 0.5,
+				});
+			},
+
+			'(max-width: 768px)': function () {
+				gsap.set('.brands-pg .brands-item', { opacity: 0, y: 100 });
+				gsap.to('.brands-pg .title', {
+					'--before-width': 'calc(50% - 23.4375vw)',
+					opacity: 1,
+					duration: 0.5,
+				});
+				gsap.to('.brands-pg .brands-item', {
+					stagger: {
+						amount: 0.25,
+						from: 'left',
+					},
+					opacity: 1,
+					y: 0,
+					delay: 0.5,
+				});
+			},
+
+			all: function () {},
+		});
+	};
+</script>
+{% endblock %}

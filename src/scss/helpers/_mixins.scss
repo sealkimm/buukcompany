@@ -1,0 +1,10 @@
+// width, height
+@mixin size($width: null, $height: null) {
+	width: $width;
+	height: $height;
+}
+// textPadding
+@mixin textPadding {
+	box-sizing: border-box;
+	padding: 0 20px;
+}

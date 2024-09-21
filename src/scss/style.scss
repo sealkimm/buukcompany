@@ -1,0 +1,23 @@
+// 모든 scss파일 import
+// --------------------------------------------------
+
+// Helpers
+@import './helpers/variables'; // 환경변수 설정
+@import './helpers/mixins'; // 믹스인
+@import './helpers/media'; // 미디어쿼리
+
+// Base
+@import './base/reset'; // CSS reset
+@import './base/common'; // 프로젝트 환경 스타일
+
+// Layout
+@import './layout/header';
+@import './layout/footer';
+@import './layout/floating-btn';
+// Pages
+@import './pages/main'; // 섹션별 페이지 스타일
+@import './pages/about';
+@import './pages/brands';
+@import './pages/brand';
+@import './pages/franchise';
+@import './pages/contact';

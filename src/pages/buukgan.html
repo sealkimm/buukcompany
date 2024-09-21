@@ -1,0 +1,145 @@
+{% set pageInfo = { 'section': 'brand', 'title': '부엌간', canonical: "sub/buukgan", ogUrl: "sub/buukgan" } %} {% set bkInteriorImg = [ 'interior_bk1.webp', 'interior_bk2.webp',
+'interior_bk3.webp', 'interior_bk4.webp', 'interior_bk5.webp', 'interior_bk6.webp', 'interior_bk7.webp', 'interior_bk8.webp' ] %} {% set bkMenuImg = [ 'menu_bk1.webp',
+'menu_bk2.webp', 'menu_bk3.webp', 'menu_bk4.webp', 'menu_bk6.webp', 'menu_bk7.webp', 'menu_bk8.webp', 'menu_bk9.webp', 'menu_bk10.webp', 'menu_bk11.webp', 'menu_bk12.webp',
+'menu_bk13.webp', 'menu_bk15.webp', 'menu_bk16.webp', 'menu_bk17.webp', 'menu_bk18.webp', 'menu_bk19.webp', 'menu_bk22.webp', 'menu_bk23.webp', 'menu_bk24.webp', 'menu_bk25.webp',
+'menu_bk26.webp', 'menu_bk27.webp', 'menu_bk29.webp', 'menu_bk30.webp' ] %} {% extends "layout.html" %} {% block content %}
+
+<div class="brand-pg">
+	<div class="brand-wrap">
+		<!--  부엌간 -->
+		<section class="sc-brand-info b1">
+			<div class="title-group">
+				<h4 class="title">부엌간</h4>
+			</div>
+			<div class="cont-group">
+				<div class="info-area">
+					<div class="inner">
+						<div class="swiper interior-swiper">
+							<div class="swiper-wrapper">
+								{% for image in bkInteriorImg %}
+								<div class="swiper-slide">
+									<img src="../img/sub/brands/interior/bk/{{ image }}" alt="부엌간 인테리어 이미지" />
+								</div>
+								{% endfor %}
+							</div>
+						</div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+					<p class="desc">
+						“My Favorite European Restaurant” 이라는
+						<br class="mob-br" />슬로건을 기반으로 운영하는 유러피안 레스토랑 ‘부엌간’입니다. <br />
+						<br />2021년부터 시작한 광주광역시 동명점을 기반으로 <br class="mob-br" />시작하여 펜더믹 시기에 핫플의 랜드마크가 된 매장입니다. <br />
+						<br />부엌간은 공간업을 기반으로 하는 외식사업을 진행하며, <br class="mob-br" />수많은 레스토랑들과 차별화된 ‘공간적 가치’를 전달 합니다.
+						<br class="mob-br" />진부한 레스토랑이 아닌 부엌간만의 아이덴티티를 녹인 메뉴들로 구성되어 있고, <br class="mob-br" />전문 쉐프가 아니여도 신입 직원도
+						배워서 마스터 할 수 있는 난이도로 <br class="mob-br" />쉬운 운영이 되게끔 셋팅 되어 있으며 다양한 메뉴 개발,마케팅,CS교육등 <br class="mob-br" />매장
+						운영하면서 챙기기 어려운 내용들을 본사에서 진행하고 있습니다.
+					</p>
+				</div>
+				<div class="menu-area">
+					<div class="tit-wrap">
+						<em class="tit">Menu</em>
+						<p class="desc">부엌간이 만들면 평범한 메뉴도 특별해집니다.</p>
+					</div>
+					<div class="swiper menu-swiper">
+						<div class="swiper-wrapper">
+							{% for image in bkMenuImg %}
+							<div class="swiper-slide">
+								<img src="../img/sub/brands/menu/bk/{{ image }}" alt="부엌간 메뉴 이미지" />
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="store-area">
+					<div class="tit-wrap">
+						<em class="tit">Store</em>
+						<p class="desc">주변의 가까운 BUUK의 매장을 확인해 보세요!</p>
+					</div>
+					<ul class="store-list">
+						<li><strong>동명 직영점</strong> 광주 동구 동계천로 167-1 1층 부엌간</li>
+						<li><strong>수완 직영점</strong> 광주 광산구 수완로106번길 37 1층</li>
+						<li><strong>상무 직영본점</strong> 광주 서구 서광주로 25 1층</li>
+						<li><strong>봉선점</strong> 광주 남구 봉선로133번길 15 더플레이스 봉선</li>
+						<li><strong>여수점</strong> 전남 여수시 돌산읍 백초길 28-58 엘리스테이 여수 4층</li>
+						<li><strong>부엌간 해운대점</strong>부산 해운대구 달맞이길117번나길 200 2층</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- // 부엌간 -->
+	</div>
+</div>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const brandInteriorSwiper = new Swiper('.sc-brand-info .interior-swiper', {
+			loop: true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		});
+
+		const brandMenuSwiper = new Swiper('.sc-brand-info .menu-swiper', {
+			loop: true,
+			slidesPerView: 'auto',
+			speed: 2500,
+			spaceBetween: 38,
+			autoplay: {
+				delay: 1,
+			},
+		});
+	});
+
+	// 브랜드페이지 gsap
+	ScrollTrigger.matchMedia({
+		'(min-width: 769px)': function () {
+			// menu-area ani
+			gsap.set(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .menu-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .menu-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+
+			// store-area ani
+			gsap.set(`.brand-pg .sc-brand-info .store-area .tit-wrap`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .store-area .tit-wrap`, {
+				scrollTrigger: {
+					trigger: `.brand-pg .sc-brand-info .store-area`,
+					start: '0% 85%',
+				},
+				opacity: 1,
+				y: 0,
+			});
+		},
+
+		'(max-width: 768px)': function () {},
+
+		all: function () {
+			// title ani
+			gsap.set(`.brand-pg .sc-brand-info .title`, { opacity: 0 });
+			gsap.to(`.brand-pg .sc-brand-info .title`, {
+				'--before-width': '100%',
+				opacity: 1,
+				duration: 0.5,
+			});
+			// info-area ani
+			gsap.set(`.brand-pg .sc-brand-info .info-area`, { opacity: 0, y: 100 });
+			gsap.to(`.brand-pg .sc-brand-info .info-area`, {
+				opacity: 1,
+				y: 0,
+				delay: 0.5,
+			});
+		},
+	});
+</script>
+{% endblock %}

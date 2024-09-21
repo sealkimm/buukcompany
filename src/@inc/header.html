@@ -1,0 +1,113 @@
+<header class="header">
+	<div class="pc-header">
+		<div class="header-wrap">
+			<h1 class="logo">
+				<a href="/">
+					<img src="../img/common/logo.png" alt="BUUK" />
+				</a>
+			</h1>
+			<nav class="nav">
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a href="/sub/about" class="nav-link"><span>ABOUT</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/brands" class="nav-link"><span>BRANDS</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/franchise" class="nav-link"><span>FRANCHISE</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/contact" class="nav-link"><span>CONTACT</span></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<div class="mob-header">
+		<div class="header-wrap">
+			<div class="logo">
+				<a href="/">
+					<img src="../img/common/logo.png" alt="BUUK 로고 이미지1" />
+				</a>
+			</div>
+			<button class="mob-menu">
+				<span>모바일 메뉴</span>
+			</button>
+			<nav class="nav">
+				<div class="row-top">
+					<a href="/">
+						<img src="../img/common/mob_logo.png" alt="BUUK 로고 이미지2" />
+					</a>
+					<button class="btn-close">
+						<img src="../img/common/btn_menu_close.png" alt="메뉴 닫기 버튼" />
+					</button>
+				</div>
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a href="/sub/about" class="nav-link"><span>ABOUT</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/brands" class="nav-link"><span>BRANDS</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/franchise" class="nav-link"><span>FRANCHISE</span></a>
+					</li>
+					<li class="nav-item">
+						<a href="/sub/contact" class="nav-link"><span>CONTACT</span></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</header>
+<script>
+	// 헤더 스크롤 이벤트
+	const $header = document.querySelector('.pc-header');
+	let lastScroll = 0;
+
+	document.addEventListener('scroll', () => {
+		let currentScroll = window.scrollY;
+
+		if (currentScroll > lastScroll && currentScroll > 50) {
+			$header.classList.add('active');
+		} else if (currentScroll < lastScroll) {
+			$header.classList.remove('active');
+		}
+		if (currentScroll < 883) {
+			$header.style.backgroundColor = '#384f31';
+		} else {
+			$header.style.backgroundColor = 'rgba(56, 79, 49, 0.9)';
+		}
+		lastScroll = currentScroll;
+	});
+
+	// nav active 효과
+	const currentUrl = window.location.pathname;
+	const $navItems = document.querySelectorAll('.nav .nav-item');
+
+	$navItems.forEach((item) => {
+		const link = item.querySelector('.nav-link').getAttribute('href');
+		if (currentUrl.includes(link)) {
+			item.classList.add('active');
+		}
+	});
+
+	// mob nav.on 효과
+	const $mobHeader = document.querySelector('.mob-header');
+	const $mobMenu = $mobHeader.querySelector('.mob-header .mob-menu');
+	const $nav = $mobHeader.querySelector('.mob-header .nav');
+	const $btnClose = $mobHeader.querySelector('.mob-header .btn-close');
+
+	$mobMenu.addEventListener('click', () => {
+		$nav.classList.add('on');
+		console.log('dd');
+	});
+	$btnClose.addEventListener('click', () => {
+		$nav.classList.remove('on');
+	});
+
+	$navItems.forEach((item) => {
+		$nav.classList.remove('on');
+	});
+</script>

@@ -1,0 +1,153 @@
+.footer {
+	width: 100%;
+	background-color: $primary-color;
+	margin-top: auto;
+	.footer-wrap {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1300px;
+		padding: 62px 60px;
+		margin: 0 auto;
+		color: #fff;
+	}
+	.col-left {
+		.footer-logo {
+			display: block;
+			@include size(92px, 23px);
+		}
+		.info {
+			display: flex;
+			flex-direction: column;
+			font-size: 16px;
+			gap: 8px;
+			margin-top: 42px;
+			p {
+				display: flex;
+				gap: 34px;
+			}
+		}
+		.copy {
+			font-size: 16px;
+			margin-top: 38px;
+		}
+	}
+
+	.col-right {
+		display: flex;
+		flex-direction: column;
+		font-weight: 600;
+		text-align: center;
+		color: #fff;
+		gap: 14px;
+		p {
+			font-size: 22px;
+		}
+		h2 {
+			font-size: 42px;
+		}
+		.insta-list {
+			display: flex;
+			gap: 38px;
+			justify-content: center;
+			.insta-item {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 40px;
+			}
+			.name {
+				display: block;
+				font-size: 14px;
+				font-weight: 400;
+				margin-top: 8px;
+			}
+		}
+	}
+
+	@include mob-only {
+		.footer-wrap {
+			flex-direction: column;
+			align-items: flex-start;
+			padding: pxToVw3(70px) 20px;
+			.footer-logo {
+				@include size(pxToVw3(130px), pxToVw3(31px));
+			}
+		}
+		.col-left {
+			.info {
+				font-size: pxToVw3(27px);
+				margin-top: pxToVw3(50px);
+				p {
+					flex-direction: column;
+					gap: pxToVw3(12px);
+				}
+			}
+			.copy {
+				font-size: pxToVw3(30px);
+				margin-top: pxToVw3(50px);
+			}
+		}
+
+		.col-right {
+			display: block;
+			margin-top: pxToVw3(50px);
+			text-align: left;
+			p {
+				font-size: pxToVw3(30px);
+				font-weight: 400;
+			}
+			h2 {
+				display: inline-block;
+				font-size: pxToVw3(50px);
+				font-weight: 400;
+			}
+			.insta-list {
+				display: inline-flex;
+				gap: pxToVw3(66px);
+				margin-left: pxToVw3(110px);
+				margin-top: pxToVw3(-30px);
+				vertical-align: text-bottom;
+				.insta-item {
+					width: pxToVw3(50px);
+					.name {
+						font-size: pxToVw3(24px);
+					}
+				}
+			}
+		}
+	}
+
+	@include tab-only {
+		.footer-wrap {
+			padding: pxToVw(62px) pxToVw(60px);
+		}
+		.col-left {
+			.info {
+				font-size: pxToVw(30px);
+				margin-top: pxToVw(50px);
+			}
+			.copy {
+				font-size: pxToVw(30px);
+				margin-top: pxToVw(38px);
+			}
+		}
+		.col-right {
+			gap: pxToVw(20px);
+			p {
+				font-size: pxToVw(32px);
+			}
+			h2 {
+				font-size: pxToVw(48px);
+			}
+			.insta-list {
+				.insta-item {
+					width: pxToVw(52px);
+					.name {
+						font-size: pxToVw(26px);
+					}
+				}
+			}
+		}
+	}
+}
