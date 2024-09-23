@@ -4,15 +4,16 @@
 <meta name="naver-site-verification" content="4722704adc2d4dbca8761cc39faf7f6baeded7ac" />
 
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-{% if pageInfo.title -%}
-<title>{{pageInfo.title}} | BUUK</title>
 
+{% if pageInfo.title -%}
+<title>{{pageInfo.title}}</title>
 {% else -%}
 <title>BUUK</title>
 {% endif %}
+
 <meta name="description" content="유러피안 F&B 문화를 선도하는 BUUK - 다양한 메뉴와 브랜드, 매장 및 가맹 안내. 부엌간, 부엌간차이니즈, 카페드부엌에서 특별한 경험을 만나보세요." />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta property="og:title" content="BUUK" />
+<meta property="og:title" content="{{pageInfo.title}}" />
 <meta property="og:type" content="website" />
 <meta
 	property="og:description"
